@@ -1,5 +1,5 @@
 //Daniel Pineda Ortega
-package Daniel;
+//package Daniel;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
