@@ -29,6 +29,28 @@ public class DibujoCalavera extends JPanel {
         g.fillOval(75, 20, 250, 100);
         // Dibuja la parte inferior del sombrero (un óvalo más grande)
         g.fillOval(50, 70, 300, 50);
+        // Cambia el color del dibujo a blanco para las velas
+        g.setColor(Color.WHITE);
+        // Dibuja la vela de la izquierda
+        g.fillRect(30, 150, 30, 150);
+        // Dibuja la vela de la derecha
+        g.fillRect(340, 150, 30, 150);
+        // Cambia el color del dibujo a amarillo para las llamas de las velas
+        g.setColor(Color.YELLOW);
+        // Dibuja la llama de la vela de la izquierda
+        g.fillOval(35, 120, 20, 30);
+        // Cambia el color del dibujo a rojo para las llamas de las velas
+        g.setColor(Color.RED);
+        // Dibuja la llama de la vela de la izquierda
+        g.fillOval(40, 125, 10, 20);
+        // Cambia el color del dibujo a amarillo para las llamas de las velas
+        g.setColor(Color.YELLOW);
+        // Dibuja la llama de la vela de la derecha
+        g.fillOval(345, 120, 20, 30);
+        // Cambia el color del dibujo a rojo para las llamas de las velas
+        g.setColor(Color.RED);
+        // Dibuja la llama de la vela de la derecha
+        g.fillOval(350, 125, 10, 20);
     }
 }
 
