@@ -23,6 +23,12 @@ public class DibujoCalavera extends JPanel {
         for (int i = 160; i <= 240; i += 20) {
             g.drawLine(i, 275, i, 300);
         }
+        // Cambia el color del dibujo a marrón
+        g.setColor(new Color(139, 69, 19));
+        // Dibuja la parte superior del sombrero (un óvalo)
+        g.fillOval(75, 20, 250, 100);
+        // Dibuja la parte inferior del sombrero (un óvalo más grande)
+        g.fillOval(50, 70, 300, 50);
     }
 }
 
