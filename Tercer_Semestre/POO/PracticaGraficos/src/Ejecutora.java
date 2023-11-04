@@ -6,7 +6,7 @@ public class Ejecutora {
         JFrame ventana = new JFrame();
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.add(dibujoCalavera);
-        ventana.setSize(400, 400);
+        ventana.setSize(600, 600);
         ventana.setVisible(true);
     }
 }
