@@ -1,8 +1,8 @@
 import javax.swing.JFrame;
 
-public class Ejecutora {
+public class DibujaCalavera {
     public static void main(String[] args) {
-        DibujoCalavera dibujoCalavera = new DibujoCalavera();
+        Calavera dibujoCalavera = new Calavera();
         JFrame ventana = new JFrame();
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.add(dibujoCalavera);

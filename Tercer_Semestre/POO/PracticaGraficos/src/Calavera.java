@@ -3,7 +3,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class DibujoCalavera extends JPanel {
+public class Calavera extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Cambia el color de fondo a negro
@@ -17,7 +17,7 @@ public class DibujoCalavera extends JPanel {
         g.setColor(Color.BLACK);
         g.fillOval(190, 200, 50, 50); // Ojo izquierdo
         g.fillOval(260, 200, 50, 50); // Ojo derecho
-        // Dibuja la nariz como un triángulo más pequeño y más abajo
+        // Dibuja la nariz como un triángulo
         g.fillPolygon(new int[] {235, 250, 265}, new int[] {260, 290, 260}, 3);
         // Dibuja los dientes
         for (int i = 210; i <= 290; i += 20) {
