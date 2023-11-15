@@ -14,9 +14,12 @@ public class PanelNavegacion extends JPanel{
 	//botones
 	private JButton btnSiguiente;
 	private JButton btnAnterior;
+
+	//Constructor del panel	
 	public PanelNavegacion() {
 
 		setLayout(new FlowLayout());
+		
 		TitledBorder border=BorderFactory.createTitledBorder("Navegacion");
 		border.setTitleColor(Color.BLUE);
 		setBorder(border);
