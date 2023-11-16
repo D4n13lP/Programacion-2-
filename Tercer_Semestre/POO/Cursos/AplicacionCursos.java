@@ -4,10 +4,10 @@
 public class AplicacionCursos {
 
     //Llenado de cursos
-    cursos=new ArrayList<Curso>();
+    //cursos=new ArrayList<Curso>();
 
     Curso cursoTmp=new Curso(101, 100, "Programacion 1");
-    cursos.add(cursoTmp);
+    //cursos.add(cursoTmp);
     
     private Integer posicionAlumnoActual;
 
