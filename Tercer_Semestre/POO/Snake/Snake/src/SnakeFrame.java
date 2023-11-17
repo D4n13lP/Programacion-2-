@@ -8,18 +8,18 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /*
- * 
+ *  Función completada: agregar la opción de reiniciar el juego
  * */
 
 public class SnakeFrame extends Frame{
-	//
+	//el ancho y la longitud de la cuadrícula
 	public static final int BLOCK_WIDTH = 15 ;
 	public static final int BLOCK_HEIGHT = 15 ;
-	//
+	//el número de filas y columnas de la cuadrícula en la interfaz
 	public static final int ROW = 40;
 	public static final int COL = 40;
 	
-	//
+	//Puntuación
 	private int score = 0;
 	
 	
@@ -30,7 +30,7 @@ public class SnakeFrame extends Frame{
 	public void setScore(int score) {
 		this.score = score;
 	}
-	//
+	//el objeto de hilo para dibujar
 	private MyPaintThread paintThread = new MyPaintThread();
 
 	private Image offScreenImage = null;
@@ -63,7 +63,7 @@ public class SnakeFrame extends Frame{
 		this.setResizable(false);
 		this.setVisible(true);
 		
-		//
+		//agregar un evento de escucha a la interfaz
 		this.addKeyListener(new KeyMonitor());
 		
 		new Thread(paintThread).start();
@@ -77,7 +77,7 @@ public class SnakeFrame extends Frame{
 	}
 	
 	/*
-	 * 
+	 * reescribir el método de actualización
 	 * */
 	@Override
 	public void update(Graphics g) {
@@ -85,9 +85,9 @@ public class SnakeFrame extends Frame{
 			offScreenImage = this.createImage(ROW*BLOCK_HEIGHT, COL*BLOCK_WIDTH);
 		}
 		Graphics offg = offScreenImage.getGraphics();
-		//
+		//primero dibuja el contenido en un lienzo virtual
 		paint(offg);
-		//
+		//luego dibuja todo el contenido del lienzo virtual en el lienzo
 		g.drawImage(offScreenImage, 0, 0, null);
 		
 		if(b_gameOver){
@@ -97,7 +97,7 @@ public class SnakeFrame extends Frame{
 		
 		snake.draw(g);
 		boolean b_Success=snake.eatEgg(egg);
-		//
+		//comer uno suma 5 puntos
 		if(b_Success){
 			score+=5;
 		}
@@ -107,7 +107,7 @@ public class SnakeFrame extends Frame{
 		
 	}
 	/*
-	 * 
+	 * Función: mostrar algunos mensajes de ayuda en la interfaz
 	 * */
 	public void displaySomeInfor(Graphics g){
 		Color c = g.getColor();
@@ -123,7 +123,7 @@ public class SnakeFrame extends Frame{
 		Color c = g.getColor();
 		g.setColor(Color.GRAY);
 		/*
-		 * 
+		 * Dibujar la interfaz compuesta por cuadrículas de ROW COL, se puede resolver con dos bucles for  
 		 * */
 		for(int i = 0;i<ROW;i++){
 			g.drawLine(0, i*BLOCK_HEIGHT, COL*BLOCK_WIDTH,i*BLOCK_HEIGHT );
@@ -137,16 +137,16 @@ public class SnakeFrame extends Frame{
 	
 	
 	/*
-	 * 
+	 * Redibujar la clase de hilo 
 	 * */
 	private class MyPaintThread implements Runnable{
-		//
+		//La ejecución no se puede cambiar. Este hilo finalizará después del cambio.
 		private static final boolean  running = true;
 		private boolean  pause = false;
 		@Override
 		public void run() {
 			while(running){
-				//
+				//Si la pausa es verdadera, pausa
 				if(pause){
 					continue;
 				}
@@ -161,19 +161,20 @@ public class SnakeFrame extends Frame{
 		}
 		
 		/*
-		 * 
+		 * Función: pausa
 		 * */
 		public void pause(){
 			pause = true;
 		}
 		/*
-		 * 
+		 * reanudar desde la pausa
 		 * */
 		public void recover(){
 			pause = false;
 		}
 		/*
-		 * 
+		 * Cuando el juego termina y muere, solo puedes configurar la pausa en verdadero, 
+		 * y no puedes configurar ejecutar = falso, lo que hará que finalice el hilo de redibujo; De lo contrario, no se puede reiniciar
 		 * 
 		 * */
 		public void dead(){
@@ -181,7 +182,7 @@ public class SnakeFrame extends Frame{
 		}
 		
 		/*
-		 * 
+		 * Función: reiniciar una ronda
 		 * */
 		public void reStart(){
 			sf.b_gameOver = false;
@@ -200,10 +201,10 @@ public class SnakeFrame extends Frame{
 			if(key == KeyEvent.VK_SPACE){
 				paintThread.pause();
 			}
-			else if(key == KeyEvent.VK_B){//
+			else if(key == KeyEvent.VK_B){// comenzar
 				paintThread.recover();
 			}
-			else if(key == KeyEvent.VK_F2){//
+			else if(key == KeyEvent.VK_F2){// Empezar otra ronda
 				paintThread.reStart();
 			}
 			else{
