@@ -151,7 +151,7 @@ public class Snake {
 
 		public void draw(Graphics g){
 			Color c = g.getColor();
-			g.setColor(Color.BLACK);
+			g.setColor(Color.GREEN);
 			g.fillRect(col*BLOCK_WIDTH, row*BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 			g.setColor(c);		
 		}
