@@ -1,9 +1,13 @@
-
-
+/* Carrillo Aldana Jorge
+Martinez Garcia Roberto
+Pineda Ortega Daniel
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Snake {
 	private static final int BLOCK_WIDTH = SnakeFrame.BLOCK_WIDTH;
@@ -151,7 +155,7 @@ public class Snake {
 
 		public void draw(Graphics g){
 			Color c = g.getColor();
-			g.setColor(Color.BLACK);
+			g.setColor(Color.GREEN);
 			g.fillRect(col*BLOCK_WIDTH, row*BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 			g.setColor(c);		
 		}

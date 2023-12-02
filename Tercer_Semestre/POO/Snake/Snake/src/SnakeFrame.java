@@ -1,3 +1,9 @@
+/* Carrillo Aldana Jorge
+Martinez Garcia Roberto
+Pineda Ortega Daniel
+ */
+
+
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -6,10 +12,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.Font;
 
-/*
- *  Función completada: agregar la opción de reiniciar el juego
- * */
+
 
 public class SnakeFrame extends Frame{
 	//el ancho y la longitud de la cuadrícula
@@ -32,13 +37,9 @@ public class SnakeFrame extends Frame{
 	}
 	//el objeto de hilo para dibujar
 	private MyPaintThread paintThread = new MyPaintThread();
-
 	private Image offScreenImage = null;
-	
 	private Snake snake = new Snake(this);
-	
 	private Egg egg = new Egg();
-	
 	private static SnakeFrame sf =null;
 	
 	public static void main(String[] args) {
@@ -51,7 +52,8 @@ public class SnakeFrame extends Frame{
 		this.setTitle("Snake");
 		this.setSize(ROW*BLOCK_HEIGHT, COL*BLOCK_WIDTH);
 		this.setLocation(30, 40);
-		this.setBackground(Color.WHITE);
+		//this.setBackground(Color.WHITE);
+		this.setBackground(new Color(210, 180, 140)); // Color de arena
 		this.addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -67,6 +69,8 @@ public class SnakeFrame extends Frame{
 		this.addKeyListener(new KeyMonitor());
 		
 		new Thread(paintThread).start();
+
+		
 	}
 	
 	
@@ -91,6 +95,14 @@ public class SnakeFrame extends Frame{
 		g.drawImage(offScreenImage, 0, 0, null);
 		
 		if(b_gameOver){
+			Color c = g.getColor();
+			g.setColor(Color.RED);
+
+			// Crear una nueva fuente en negrita
+			Font boldFont = new Font("SansSerif", Font.BOLD, 14);
+
+			// Establecer la fuente del objeto Graphics en la fuente en negrita
+			g.setFont(boldFont);
 			g.drawString("Fin del juego", ROW/2*BLOCK_HEIGHT, COL/2*BLOCK_WIDTH);
 			paintThread.dead();
 		}
@@ -111,17 +123,31 @@ public class SnakeFrame extends Frame{
 	 * */
 	public void displaySomeInfor(Graphics g){
 		Color c = g.getColor();
-		g.setColor(Color.RED);
-		g.drawString("Instrucciones de uso: tecla de espacio — pausa, tecla B — comienza después de la pausa, F2 — reinicia", 5*BLOCK_HEIGHT, 3*BLOCK_WIDTH);
-		g.drawString("Puntuación:"+score, 5*BLOCK_HEIGHT, 5*BLOCK_WIDTH);		
+		g.setColor(Color.BLUE);
+
+		// Crear una nueva fuente en negrita
+		Font boldFont = new Font("SansSerif", Font.BOLD, 14);
+
+		// Establecer la fuente del objeto Graphics en la fuente en negrita
+		g.setFont(boldFont);
+	
+		// Dibujar la cadena
+		g.drawString("Puntuacion:  "+score, 5*BLOCK_HEIGHT, 5*BLOCK_WIDTH);		
+	
+		// Restaurar el color original
 		g.setColor(c);
+
+		//g.drawString("Instrucciones de uso: tecla de espacio — pausa, tecla B — comienza después de la pausa, F2 — reinicia", 5*BLOCK_HEIGHT, 3*BLOCK_WIDTH);
+		//g.drawString("Puntuacion:  "+score, 5*BLOCK_HEIGHT, 5*BLOCK_WIDTH);		
+		//g.setColor(c);
 		
 	}
 
 	@Override
 	public void paint(Graphics g) {
 		Color c = g.getColor();
-		g.setColor(Color.GRAY);
+		//g.setColor(Color.GRAY);
+		g.setColor(new Color(205, 133, 63));
 		/*
 		 * Dibujar la interfaz compuesta por cuadrículas de ROW COL, se puede resolver con dos bucles for  
 		 * */

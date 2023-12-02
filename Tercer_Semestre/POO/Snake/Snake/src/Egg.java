@@ -1,4 +1,7 @@
-
+/* Carrillo Aldana Jorge
+Martinez Garcia Roberto
+Pineda Ortega Daniel
+ */
 
 import java.awt.Color;
 import java.awt.Graphics;
