@@ -1,2 +1,2 @@
 # Matematicas-Aplicadas-y-Computacion-FES-Acatlan-
-Repositorio de programas hechos en el curso de Programación 2 de la FES Acatlán
+Repositorio de programas hechos en la carrera de Matemáticas Aplicadas y Computación en la FES Acatlán
